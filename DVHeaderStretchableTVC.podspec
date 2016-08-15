@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.authors             = { 'Denis Vashkovski' => 'denis.vashkovski.vv@gmail.com' }
   s.platform            = :ios, "7.1"
   s.source              = { :git => 'https://github.com/denis-vashkovski/DVHeaderStretchableTVC.git', :tag => s.version.to_s }
-  s.ios.source_files    = 'DVHeaderStretchableTVC/DVHeaderStretchableTVC.{h,m}'
+  s.ios.source_files    = 'DVHeaderStretchableTVC/DVHeaderStretchableTVC.{h,m}',
+                          'DVHeaderStretchableTVC/UITableViewController+HeaderStretchable.{h,m}'
   s.requires_arc        = true
 end
