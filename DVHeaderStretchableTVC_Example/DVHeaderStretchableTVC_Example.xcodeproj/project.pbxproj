@@ -14,6 +14,7 @@
 		4147F9681D61B68100D17550 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4147F9661D61B68100D17550 /* LaunchScreen.storyboard */; };
 		4147F9711D61B6D800D17550 /* DVHeaderStretchableTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4147F9701D61B6D800D17550 /* DVHeaderStretchableTVC.m */; };
 		4147F9751D61B99300D17550 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4147F9741D61B99300D17550 /* TableViewController.m */; };
+		4147F9781D61E5A100D17550 /* UITableViewController+HeaderStretchable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4147F9771D61E5A100D17550 /* UITableViewController+HeaderStretchable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		4147F9701D61B6D800D17550 /* DVHeaderStretchableTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DVHeaderStretchableTVC.m; path = ../../DVHeaderStretchableTVC/DVHeaderStretchableTVC.m; sourceTree = "<group>"; };
 		4147F9731D61B99300D17550 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		4147F9741D61B99300D17550 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		4147F9761D61E5A100D17550 /* UITableViewController+HeaderStretchable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableViewController+HeaderStretchable.h"; path = "../../DVHeaderStretchableTVC/UITableViewController+HeaderStretchable.h"; sourceTree = "<group>"; };
+		4147F9771D61E5A100D17550 /* UITableViewController+HeaderStretchable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableViewController+HeaderStretchable.m"; path = "../../DVHeaderStretchableTVC/UITableViewController+HeaderStretchable.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 		4147F9721D61B6DE00D17550 /* DVHeaderStretchableTVC */ = {
 			isa = PBXGroup;
 			children = (
+				4147F9761D61E5A100D17550 /* UITableViewController+HeaderStretchable.h */,
+				4147F9771D61E5A100D17550 /* UITableViewController+HeaderStretchable.m */,
 				4147F96F1D61B6D800D17550 /* DVHeaderStretchableTVC.h */,
 				4147F9701D61B6D800D17550 /* DVHeaderStretchableTVC.m */,
 			);
@@ -166,6 +171,7 @@
 				4147F9711D61B6D800D17550 /* DVHeaderStretchableTVC.m in Sources */,
 				4147F95D1D61B68100D17550 /* AppDelegate.m in Sources */,
 				4147F9751D61B99300D17550 /* TableViewController.m in Sources */,
+				4147F9781D61E5A100D17550 /* UITableViewController+HeaderStretchable.m in Sources */,
 				4147F95A1D61B68100D17550 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +321,7 @@
 				4147F96E1D61B68100D17550 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

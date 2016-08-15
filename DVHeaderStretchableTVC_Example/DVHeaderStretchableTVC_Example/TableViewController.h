@@ -6,8 +6,8 @@
 //  Copyright © 2016 Denis Vashkovski. All rights reserved.
 //
 
-#import "DVHeaderStretchableTVC.h"
+#import <UIKit/UIKit.h>
 
-@interface TableViewController : DVHeaderStretchableTVC
+@interface TableViewController : UITableViewController
 
 @end
