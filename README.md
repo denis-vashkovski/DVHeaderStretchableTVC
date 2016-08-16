@@ -18,7 +18,7 @@ UITableViewController with elastic header.
 
 1.  Add the pod `DVHeaderStretchableTVC` to your [Podfile](http://guides.cocoapods.org/using/the-podfile.html).
 
-pod 'DVHeaderStretchableTVC', :git => 'https://github.com/denis-vashkovski/DVHeaderStretchableTVC.git'
+        pod 'DVHeaderStretchableTVC', :git => 'https://github.com/denis-vashkovski/DVHeaderStretchableTVC.git'
 
 2.  Run `pod install` from Terminal, then open your app's `.xcworkspace` file to launch Xcode.
 
