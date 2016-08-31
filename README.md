@@ -30,16 +30,16 @@ Import the class header.
 #import "UITableViewController+HeaderStretchable.h"
 ```
 
-Just redefine method `dv_heightForParallaxView` and `dv_viewForParallaxView`.
+Just redefine method `dv_heightForStretchableView` and `dv_viewForStretchableView`.
 
 ``` objective-c
 // Asks the data source about the height of the header with stretchable effect
-- (CGFloat)dv_heightForParallaxView {
+- (CGFloat)dv_heightForStretchableView {
     return 100.;
 }
 
 // Asks the data source about the UIView of the header with stretchable effect
-- (UIView *)dv_viewForParallaxView {
+- (UIView *)dv_viewForStretchableView {
     UILabel *label = [UILabel new];
     [label setText:@"Elastic header"];
     [label setTextAlignment:NSTextAlignmentCenter];
