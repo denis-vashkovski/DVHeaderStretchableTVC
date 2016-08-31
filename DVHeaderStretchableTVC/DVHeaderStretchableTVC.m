@@ -14,37 +14,37 @@
 
 @implementation DVHeaderStretchableTVC
 
-#define VIEW_PARALLAX_TAG 9191
-- (void)dv_reloadParallaxData {
-    if (![self isNeedPrepareParallaxView]) {
+#define VIEW_STRETCHABLE_TAG 9191
+- (void)dv_reloadStretchableData {
+    if (![self isNeedPrepareStretchableView]) {
         return;
     }
     
-    UIView *parallaxView = [self.tableView viewWithTag:VIEW_PARALLAX_TAG];
-    if (parallaxView) {
-        [parallaxView removeFromSuperview];
+    UIView *stretchableView = [self.tableView viewWithTag:VIEW_STRETCHABLE_TAG];
+    if (stretchableView) {
+        [stretchableView removeFromSuperview];
         
         UIEdgeInsets contentinsetst = self.tableView.contentInset;
         contentinsetst.top = .0;
         [self.tableView setContentInset:contentinsetst];
     }
     
-    [self prepareParallaxView];
+    [self prepareStretchableView];
 }
 
 #define CONTENT_OFFSET_KEYPATH @"contentOffset"
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if ([self isNeedPrepareParallaxView]) {
-        [self dv_reloadParallaxData];
+    if ([self isNeedPrepareStretchableView]) {
+        [self dv_reloadStretchableData];
     }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if ([self isNeedPrepareParallaxView]) {
+    if ([self isNeedPrepareStretchableView]) {
         [self.tableView addObserver:self forKeyPath:CONTENT_OFFSET_KEYPATH options:NSKeyValueObservingOptionNew context:nil];
         self.observerContentOffset = @(YES);
     }
@@ -61,55 +61,55 @@
 
 #pragma mark - Observer
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    if (![CONTENT_OFFSET_KEYPATH isEqualToString:keyPath] || ![self isNeedPrepareParallaxView]) {
+    if (![CONTENT_OFFSET_KEYPATH isEqualToString:keyPath] || ![self isNeedPrepareStretchableView]) {
         return;
     }
     
     CGFloat yOffset = [[change objectForKey:@"new"] CGPointValue].y;
-    if (yOffset >= -self.dv_heightForParallaxView) {
+    if (yOffset >= -self.dv_heightForStretchableView) {
         return;
     }
     
-    UIView *parallaxView = [self.tableView viewWithTag:VIEW_PARALLAX_TAG];
-    if (parallaxView) {
-        CGRect frameNew = parallaxView.frame;
+    UIView *stretchableView = [self.tableView viewWithTag:VIEW_STRETCHABLE_TAG];
+    if (stretchableView) {
+        CGRect frameNew = stretchableView.frame;
         frameNew.origin.y = yOffset;
         frameNew.size.height = -yOffset;
         
-        [parallaxView setFrame:frameNew];
+        [stretchableView setFrame:frameNew];
     }
 }
 
 #pragma mark - Utils
-- (void)prepareParallaxView {
-    CGFloat heightParallaxView = self.dv_heightForParallaxView;
+- (void)prepareStretchableView {
+    CGFloat heightStretchableView = self.dv_heightForStretchableView;
     UIView *view = nil;
-    if ((heightParallaxView <= .0) || !(view = self.dv_viewForParallaxView)) {
+    if ((heightStretchableView <= .0) || !(view = self.dv_viewForStretchableView)) {
         return;
     }
     
-    UIView *parallaxView = [[UIView alloc] initWithFrame:CGRectMake(.0,
-                                                                    -heightParallaxView,
+    UIView *stretchableView = [[UIView alloc] initWithFrame:CGRectMake(.0,
+                                                                    -heightStretchableView,
                                                                     self.tableView.frame.size.width,
-                                                                    heightParallaxView)];
-    [parallaxView setBackgroundColor:[UIColor clearColor]];
-    [parallaxView setTag:VIEW_PARALLAX_TAG];
-    [self.tableView addSubview:parallaxView];
+                                                                    heightStretchableView)];
+    [stretchableView setBackgroundColor:[UIColor clearColor]];
+    [stretchableView setTag:VIEW_STRETCHABLE_TAG];
+    [self.tableView addSubview:stretchableView];
     
-    [parallaxView addSubview:view];
+    [stretchableView addSubview:view];
     
     [view setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [parallaxView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(view)]];
-    [parallaxView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(view)]];
+    [stretchableView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(view)]];
+    [stretchableView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(view)]];
     
     UIEdgeInsets contentInset = self.tableView.contentInset;
-    contentInset.top += heightParallaxView;
+    contentInset.top += heightStretchableView;
     [self.tableView setContentInset:contentInset];
     [self.tableView setContentOffset:CGPointMake(.0, -contentInset.top)];
 }
 
-- (BOOL)isNeedPrepareParallaxView {
-    return [self respondsToSelector:@selector(dv_heightForParallaxView)] && [self respondsToSelector:@selector(dv_viewForParallaxView)];
+- (BOOL)isNeedPrepareStretchableView {
+    return [self respondsToSelector:@selector(dv_heightForStretchableView)] && [self respondsToSelector:@selector(dv_viewForStretchableView)];
 }
 
 @end

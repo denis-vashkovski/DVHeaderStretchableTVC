@@ -21,11 +21,11 @@
 }
 
 #pragma mark - DVHeaderStretchableTVCDelegate
-- (CGFloat)dv_heightForParallaxView {
+- (CGFloat)dv_heightForStretchableView {
     return 100.;
 }
 
-- (UIView *)dv_viewForParallaxView {
+- (UIView *)dv_viewForStretchableView {
     UILabel *label = [UILabel new];
     [label setText:@"Elastic header"];
     [label setTextAlignment:NSTextAlignmentCenter];

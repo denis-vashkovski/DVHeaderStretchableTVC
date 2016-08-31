@@ -10,9 +10,9 @@
 
 @protocol DVHeaderStretchableTVCDelegate <NSObject>
 @optional
-- (CGFloat)dv_heightForParallaxView;
-- (UIView *)dv_viewForParallaxView;
-- (void)dv_reloadParallaxData;
+- (CGFloat)dv_heightForStretchableView;
+- (UIView *)dv_viewForStretchableView;
+- (void)dv_reloadStretchableData;
 @end
 
 @interface DVHeaderStretchableTVC : UITableViewController<DVHeaderStretchableTVCDelegate>

@@ -11,9 +11,9 @@
 
 @protocol UITableViewHeaderStretchable <NSObject>
 @optional
-- (CGFloat)dv_heightForParallaxView;
-- (UIView *)dv_viewForParallaxView;
-- (void)dv_reloadParallaxData;
+- (CGFloat)dv_heightForStretchableView;
+- (UIView *)dv_viewForStretchableView;
+- (void)dv_reloadStretchableData;
 @end
 
 @interface UITableViewController(HeaderStretchable)<UITableViewHeaderStretchable>
