@@ -22,6 +22,32 @@ UITableViewController with elastic header.
 
 2.  Run `pod install` from Terminal, then open your app's `.xcworkspace` file to launch Xcode.
 
+## Basic Usage
+
+Import the class header.
+
+``` objective-c
+#import "UITableViewController+HeaderStretchable.h"
+```
+
+Just redefine method `dv_heightForParallaxView` and `dv_viewForParallaxView`.
+
+``` objective-c
+// Asks the data source about the height of the header with stretchable effect
+- (CGFloat)dv_heightForParallaxView {
+    return 100.;
+}
+
+// Asks the data source about the UIView of the header with stretchable effect
+- (UIView *)dv_viewForParallaxView {
+    UILabel *label = [UILabel new];
+    [label setText:@"Elastic header"];
+    [label setTextAlignment:NSTextAlignmentCenter];
+    [label setBackgroundColor:[UIColor lightGrayColor]];
+    return label;
+}
+```
+
 ## Demo
 
 Build and run the `DVHeaderStretchableTVC_Example` project in Xcode to see `DVHeaderStretchableTVC` in action.
